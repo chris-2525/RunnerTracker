@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Runs</h1>
+<h2>View runs</h2>
+
+<table>
+    <tr>
+        <th>RUN NAME</th>
+        <th>RUN TIME</th>
+    </tr>
+    <tr th:each="r: ${runs}" >
+        <td th:text="${r.name}"></td>
+        <td th:text="${r.time}"></td>
+    </tr>
+</table>
+
+<h2>Add a run</h2>
+<form action="/runs" method="post">
+    Name: <input type="text" name="name"><br />
+    Time: <input type="number" step="any" name="time"><br />
+    <button type="submit">Add run</button>
+</form>
+</body>
+</html>
